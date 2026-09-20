@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-instrument), "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+
+  --color-paper: #faf5ec;
+  --color-cream: #f1e7d4;
+  --color-card: #fffdf8;
+  --color-ink: #2b2117;
+  --color-ink-soft: #6c5d4c;
+  --color-line: #e6dbc8;
+
+  --color-terra: #b94a17;
+  --color-terra-deep: #8f3410;
+  --color-terra-soft: #f6e2d4;
+
+  --color-herb: #5a6b3b;
+  --color-herb-deep: #414f2a;
+  --color-herb-soft: #eaecd9;
+
+  --color-honey: #dda032;
+  --color-honey-soft: #f8ecd2;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #b94a17;
+  color: #faf5ec;
+}
+
+@keyframes pv-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pv-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes pv-pop {
+  0% {
+    transform: scale(0.5);
+  }
+  60% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pv-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.anim-fade-up {
+  animation: pv-fade-up 0.55s cubic-bezier(0.22, 0.68, 0.36, 1) both;
+}
+
+.anim-pop {
+  animation: pv-pop 0.35s ease both;
+}
+
+.anim-toast {
+  animation: pv-toast-in 0.3s ease both;
+}
+
+.skeleton {
+  background: linear-gradient(100deg, #f0e6d3 40%, #faf3e6 50%, #f0e6d3 60%);
+  background-size: 200% 100%;
+  animation: pv-shimmer 1.5s linear infinite;
+}
+
+.dot-grid {
+  background-image: radial-gradient(rgba(185, 74, 23, 0.18) 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff !important;
+  }
+  aside {
+    position: static !important;
+  }
+  a {
+    text-decoration: none !important;
+  }
+}
